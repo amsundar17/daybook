@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Daybook &mdash; Life OS</title>
+<meta name="description" content="A personal daily-routine and life dashboard: tasks, routines, projects, content, people, library, domains, and finances, with Google Calendar/Gmail and Postgres sync, all in one installable app." />
+<link rel="manifest" href="manifest.webmanifest" />
+<meta name="theme-color" content="#4f46e5" />
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Daybook" />
+<link rel="icon" href="icons/icon-192.png" />
+<link rel="stylesheet" href="css/styles.css?v=4" />
+</head>
+<body>
+<div id="app">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <img src="icons/icon-192.png" alt="" class="brand-mark" />
+      <span>Daybook</span>
+    </div>
+    <div class="side-search">
+      <button class="ghost-btn" id="side-search-trigger" aria-label="Search everything" style="width:100%;"></button>
+    </div>
+    <nav class="nav-list" id="nav-list" aria-label="Sections"></nav>
+    <div class="sidebar-footer">
+      <button class="ghost-btn" id="theme-toggle-desktop"></button>
+    </div>
+  </aside>
+
+  <div class="main-col">
+    <header class="topbar">
+      <button class="icon-btn only-mobile" id="drawer-trigger" aria-label="Open menu"></button>
+      <div class="topbar-title" id="topbar-title">Today</div>
+      <button class="icon-btn hidden" id="topbar-add" data-act="add-current" aria-label="Add new"></button>
+      <button class="icon-btn" id="search-trigger" aria-label="Search everything"></button>
+    </header>
+
+    <main id="view-root" tabindex="-1"></main>
+
+    <nav class="bottom-nav" id="bottom-nav" aria-label="Primary"></nav>
+  </div>
+</div>
+
+<div class="overlay hidden" id="drawer-overlay"></div>
+<div class="drawer hidden" id="drawer" aria-label="More sections">
+  <div class="drawer-header">
+    <span>More</span>
+    <button class="icon-btn" id="drawer-close" aria-label="Close menu"></button>
+  </div>
+  <nav class="nav-list" id="drawer-nav-list"></nav>
+</div>
+
+<div class="overlay hidden" id="search-overlay"></div>
+<div class="search-panel hidden" id="search-panel">
+  <div class="search-bar">
+    <span id="search-icon"></span>
+    <input id="search-input" type="text" placeholder="Search tasks, routines, projects, notes, people…" autocomplete="off" />
+    <button class="icon-btn" id="search-close" aria-label="Close search"></button>
+  </div>
+  <div class="search-results" id="search-results"></div>
+</div>
+
+<div class="overlay hidden" id="modal-overlay"></div>
+<div id="modal-root"></div>
+
+<div id="toast-root" aria-live="polite"></div>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="js/icons.js?v=4"></script>
+<script src="js/dates.js?v=4"></script>
+<script src="js/quotes.js?v=4"></script>
+<script src="js/supabase-sync.js?v=4"></script>
+<script src="js/store.js?v=4"></script>
+<script src="js/google-integration.js?v=4"></script>
+<script src="js/finance-extract.js?v=4"></script>
+<script src="js/capture.js?v=4"></script>
+<script src="js/search.js?v=4"></script>
+<script src="js/views-core.js?v=4"></script>
+<script src="js/views-work.js?v=4"></script>
+<script src="js/views-life.js?v=4"></script>
+<script src="js/views-financial.js?v=4"></script>
+<script src="js/health-calc.js?v=4"></script>
+<script src="js/views-health.js?v=4"></script>
+<script src="js/app.js?v=4"></script>
+</body>
+</html>
